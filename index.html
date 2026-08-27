@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+/* =========================================================
+   🌑 DARKNESS OF NIGHT — NEW MEMBERS SIDEBAR
+   ========================================================= */
+
+html, body {
+    background: transparent !important;
+    background-color: transparent !important;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #e8eaff;
+}
+
+/* =========================================================
+   MAIN CARD
+   ========================================================= */
+
+.vortex-card {
+    width: 240px;
+    background:
+        radial-gradient(circle at 85% 0%, rgba(93, 79, 255, 0.16), transparent 38%),
+        radial-gradient(circle at 10% 100%, rgba(35, 52, 110, 0.18), transparent 42%),
+        linear-gradient(145deg, #05050b 0%, #090a14 48%, #05060d 100%);
+
+    border: 1px solid rgba(115, 110, 255, 0.28);
+    border-radius: 16px;
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.65),
+        0 0 22px rgba(70, 65, 180, 0.10),
+        inset 0 0 25px rgba(255, 255, 255, 0.015);
+
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Moonlight atmosphere */
+
+.vortex-card::before {
+    content: "";
+    position: absolute;
+    width: 190px;
+    height: 190px;
+    top: -115px;
+    right: -70px;
+
+    background: radial-gradient(
+        circle,
+        rgba(150, 155, 255, 0.15) 0%,
+        rgba(100, 100, 220, 0.06) 35%,
+        transparent 70%
+    );
+
+    pointer-events: none;
+}
+
+/* Subtle stars */
+
+.vortex-card::after {
+    content: "✦     ·        ✧        ·     ✦";
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    color: rgba(190, 195, 255, 0.16);
+    font-size: 8px;
+    letter-spacing: 4px;
+
+    pointer-events: none;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header-section {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(20, 21, 40, 0.95),
+            rgba(8, 9, 18, 0.96)
+        );
+
+    padding: 14px 16px;
+
+    display: flex;
+    align-items: center;
+
+    border-bottom: 1px solid rgba(110, 105, 255, 0.22);
+
+    position: relative;
+}
+
+/* Small moon */
+
+.header-icon {
+    width: 29px;
+    height: 29px;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #ffffff 0%,
+            #cfd3ff 20%,
+            #7d83ff 48%,
+            #363b8f 100%
+        );
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 10px;
+
+    font-size: 14px;
+
+    box-shadow:
+        0 0 10px rgba(130, 135, 255, 0.55),
+        0 0 22px rgba(90, 95, 230, 0.22);
+
+    color: #090a16;
+}
+
+/* Header text */
+
+.header-text {
+    color: #d9dcff;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    text-shadow:
+        0 0 8px rgba(130, 135, 255, 0.30);
+}
+
+/* =========================================================
+   MEMBER LIST
+   ========================================================= */
+
+#list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+    position: relative;
+
+    padding: 15px;
+}
+
+/* =========================================================
+   MEMBER BOX
+   ========================================================= */
+
+.member-box {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(21, 22, 38, 0.92),
+            rgba(8, 9, 17, 0.96)
+        );
+
+    backdrop-filter: blur(10px);
+
+    border-radius: 10px;
+
+    padding: 12px 13px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+
+    border: 1px solid rgba(95, 100, 180, 0.17);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+/* Night glow line */
+
+.member-box::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 2px;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #30346d,
+            #737aff,
+            #30346d
+        );
+
+    opacity: 0;
+
+    transition: opacity 0.25s ease;
+}
+
+/* Soft horizontal glow */
+
+.member-box::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(130, 135, 255, 0.07),
+            transparent
+        );
+
+    transition: left 0.5s ease;
+
+    pointer-events: none;
+}
+
+/* Hover */
+
+.member-box:hover {
+    transform: translateX(3px);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(28, 29, 53, 0.98),
+            rgba(10, 11, 22, 0.98)
+        );
+
+    border-color: rgba(115, 120, 255, 0.42);
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.55),
+        0 0 14px rgba(80, 85, 220, 0.13);
+}
+
+.member-box:hover::before {
+    opacity: 1;
+}
+
+.member-box:hover::after {
+    left: 120%;
+}
+
+/* =========================================================
+   RANK NUMBER
+   ========================================================= */
+
+.rank-number {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(70, 74, 145, 0.28),
+            rgba(25, 27, 58, 0.35)
+        );
+
+    color: #aeb3ff;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    width: 22px;
+    height: 22px;
+
+    border-radius: 6px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border: 1px solid rgba(120, 125, 255, 0.25);
+
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    box-shadow:
+        inset 0 0 8px rgba(100, 105, 255, 0.06);
+}
+
+/* =========================================================
+   AVATAR
+   ========================================================= */
+
+.avatar-wrapper {
+    position: relative;
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 9px;
+
+    object-fit: cover;
+
+    border: 2px solid rgba(105, 110, 210, 0.30);
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.member-box:hover .avatar {
+    border-color: rgba(145, 150, 255, 0.72);
+
+    box-shadow:
+        0 0 10px rgba(100, 105, 240, 0.22);
+}
+
+/* =========================================================
+   NEW BADGE
+   ========================================================= */
+
+.new-badge {
+    position: absolute;
+
+    top: -4px;
+    right: -5px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #555bd8,
+            #8b91ff
+        );
+
+    color: #05060d;
+
+    font-size: 6px;
+    font-weight: 800;
+
+    padding: 2px 6px;
+
+    border-radius: 8px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    box-shadow:
+        0 0 7px rgba(115, 120, 255, 0.42);
+}
+
+/* =========================================================
+   MEMBER INFO
+   ========================================================= */
+
+.info-container {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+
+    overflow: hidden;
+}
+
+/* Username */
+
+.name {
+    color: #e3e5ff;
+
+    text-shadow:
+        0 0 7px rgba(140, 145, 255, 0.18);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    transition: color 0.2s ease;
+}
+
+.member-box:hover .name {
+    color: #ffffff;
+}
+
+/* Time */
+
+.time-ago {
+    color: rgba(160, 165, 210, 0.58);
+
+    font-size: 10px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.time-ago::before {
+    content: "☾";
+
+    font-size: 8px;
+
+    color: rgba(125, 130, 235, 0.62);
+}
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.loading-text {
+    color: rgba(155, 160, 215, 0.45);
+
+    font-size: 11px;
+
+    text-align: center;
+
+    padding: 20px;
+
+    font-style: italic;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    text-shadow:
+        0 0 8px rgba(100, 105, 220, 0.12);
+}
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+</style>
+</head>
+
+<body>
+
+<div class="vortex-card">
+
+    <div class="header-section">
+        <div class="header-icon">☾</div>
+        <div class="header-text">New Members</div>
+    </div>
+
+    <div id="list">
+        <div class="loading-text">
+            Entering the night...
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+/* =========================================================
+   TIME AGO
+   ========================================================= */
+
+function timeAgo(date) {
+
+    const seconds =
+        Math.floor((new Date() - date) / 1000);
+
+    let interval =
+        Math.floor(seconds / 31536000);
+
+    if (interval >= 1)
+        return interval + "y ago";
+
+    interval =
+        Math.floor(seconds / 2592000);
+
+    if (interval >= 1)
+        return interval + "mo ago";
+
+    interval =
+        Math.floor(seconds / 86400);
+
+    if (interval >= 1)
+        return interval + "d ago";
+
+    interval =
+        Math.floor(seconds / 3600);
+
+    if (interval >= 1)
+        return interval + "h ago";
+
+    interval =
+        Math.floor(seconds / 60);
+
+    if (interval >= 1)
+        return interval + "m ago";
+
+    return "just now";
+}
+
+
+/* =========================================================
+   LOAD MEMBERS
+   ========================================================= */
+
+async function load() {
+
+    const list =
+        document.getElementById("list");
+
+    const headers = {
+        "User-Agent":
+            "DarknessOfNightSidebar/3.0"
+    };
+
+    const defaultPawn =
+        "https://www.chess.com/bundles/web/images/user-image.007dad08.svg";
+
+    try {
+
+        const r = await fetch(
+            "https://api.chess.com/pub/club/darkness-of-night/members",
+            { headers }
+        );
+
+        const d = await r.json();
+
+        const allMembers = [
+            ...(d.weekly || []),
+            ...(d.monthly || [])
+        ];
+
+        const top3 =
+            allMembers
+                .sort((a, b) =>
+                    b.joined - a.joined
+                )
+                .slice(0, 3);
+
+        list.innerHTML = "";
+
+        const memberPromises =
+            top3.map(m =>
+
+                fetch(
+                    `https://api.chess.com/pub/player/${m.username}`,
+                    { headers }
+                )
+
+                .then(pR => pR.json())
+
+                .then(pData => ({
+
+                    username: m.username,
+
+                    avatar:
+                        (pData.avatar &&
+                         pData.avatar !== "")
+                            ? pData.avatar
+                            : defaultPawn,
+
+                    joined: m.joined
+
+                }))
+
+                .catch(err => {
+
+                    console.error(err);
+
+                    return {
+
+                        username: m.username,
+
+                        avatar: defaultPawn,
+
+                        joined: m.joined
+                    };
+
+                })
+            );
+
+
+        const members =
+            await Promise.all(memberPromises);
+
+
+        members.forEach((member, index) => {
+
+            const joinedDate =
+                new Date(member.joined * 1000);
+
+
+            const memberHTML = `
+
+                <a
+                    href="https://www.chess.com/member/${member.username}"
+                    target="_blank"
+                >
+
+                    <div class="member-box">
+
+                        <div class="rank-number">
+                            ${index + 1}
+                        </div>
+
+                        <div class="avatar-wrapper">
+
+                            <img
+                                src="${member.avatar}"
+                                class="avatar"
+                                onerror="this.src='${defaultPawn}'"
+                            >
+
+                            <div class="new-badge">
+                                NEW
+                            </div>
+
+                        </div>
+
+                        <div class="info-container">
+
+                            <span class="name">
+                                ${member.username}
+                            </span>
+
+                            <span class="time-ago">
+                                ${timeAgo(joinedDate)}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </a>
+            `;
+
+            list.innerHTML += memberHTML;
+
+        });
+
+    }
+
+    catch (e) {
+
+        console.error(e);
+
+        list.innerHTML =
+            "<div class='loading-text'>The night is hiding the members...</div>";
+    }
+}
+
+
+/* =========================================================
+   START
+   ========================================================= */
+
+load();
+
+</script>
+
+</body>
+</html>
